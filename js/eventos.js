@@ -33,4 +33,5 @@ async function verTodosEventos() {
   }
 }
 
+// Chamando função para listar eventos no DOM
 verTodosEventos()
