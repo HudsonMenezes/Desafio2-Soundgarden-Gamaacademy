@@ -10,7 +10,7 @@ async function verTodosEventos() {
     console.log(listaEventos)
 
     listaEventos.forEach(evento => {
-      // formatando data do evento, pela API ela vem em formato ISO, transformei para o formato local ( Br )
+      // formatando data do evento, pela API ela vem em formato ISO, transformei para o formato local (Br)
       let dataEvento = new Date(evento.scheduled).toLocaleString()
 
       // para que cada evento na API apareça na página
