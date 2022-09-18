@@ -17,12 +17,9 @@ async function verTodosEventos() {
       let html = `
       <article class="evento card p-5 m-3">
             <h2>${evento.name} - ${dataEvento}</h2>
-            <h4>Arctic Monkeys, The Kooks, Hiatus Kaiyote</h4>
+            <h4>${evento.attractions}</h4>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro
-              aperiam sunt quo similique, dolorum consectetur inventore ipsam,
-              officiis neque natus eius harum alias quidem. Possimus nobis in
-              inventore tenetur asperiores.
+              ${evento.description}
             </p>
             <a href="#" class="btn btn-primary">reservar ingresso</a>
             </article>
