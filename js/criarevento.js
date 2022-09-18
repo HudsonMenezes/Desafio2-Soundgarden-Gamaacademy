@@ -3,6 +3,11 @@ criarEventoForm.addEventListener('submit', novoEvento)
 
 const URL = 'https://xp41-soundgarden-api.herokuapp.com/events'
 
+function redirecionar() {
+  // função para redirecionar o usuário para a página admin.html
+  window.location.href = 'admin.html'
+}
+
 async function novoEvento(e) {
   e.preventDefault() // evitar que atualize a página automaticamente após enviar
 
@@ -33,12 +38,9 @@ async function novoEvento(e) {
       headers: { 'Content-type': 'application/json; charset=UTF-8' }
     })
     const res = await response.json()
+    alert('Evento ' + nome + ' Cadastrado com Sucesso')
     console.log(res)
-    // .then(response => response.json())
-    // .then(json => console.log(json))
-    // .then(alert('Evento criado com sucesso!'))
-
-    console.log(res)
+    redirecionar() // redireciona pra página admin.html após o cadastro
   } catch (error) {
     console.log(error)
   }
