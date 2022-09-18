@@ -9,12 +9,12 @@ async function novoEvento(e) {
   //recebendo e armazenando os valores que serão inseridos no formulário
   const nome = document.getElementById('nome').value
   const atracoes = document.getElementById('atracoes').value.split(',')
-  const descricao = document.getElementById('descricao')
+  const descricao = document.getElementById('descricao').value
   const data = document.getElementById('data').value
   const dataObj = new Date(data)
-  const isoDate = dataObj.toISOString() // tem que enviar para a API a data em formato ISO
+  const isoData = dataObj.toISOString() // tem que enviar para a API a data em formato ISO
   const lotacao = document.getElementById('lotacao').value
-  const poster = document.getElementById('poster').value
+  const poster = 'link da imagem'
 
   // as informações que serão enviadas - depois tem que transformar em JSON para enviar pra API
   const evento = {
@@ -22,16 +22,24 @@ async function novoEvento(e) {
     attractions: atracoes,
     description: descricao,
     poster: poster,
-    scheduled: isoDate,
+    scheduled: isoData,
     number_tickets: lotacao
   }
 
-  // try {
-  //   const response = await fetch(URL, {
-  //     method: "POST",
-  //     body:
-  //   })
-  // } catch (error) {
-  //   console.log(error)
-  // }
+  try {
+    const response = await fetch(URL, {
+      method: 'POST',
+      body: JSON.stringify(evento),
+      headers: { 'Content-type': 'application/json; charset=UTF-8' }
+    })
+    const res = await response.json()
+    console.log(res)
+    // .then(response => response.json())
+    // .then(json => console.log(json))
+    // .then(alert('Evento criado com sucesso!'))
+
+    console.log(res)
+  } catch (error) {
+    console.log(error)
+  }
 }
