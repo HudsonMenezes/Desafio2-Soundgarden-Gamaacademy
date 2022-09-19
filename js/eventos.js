@@ -48,7 +48,7 @@ function abrirModal() {
 
 // reserva igresso para evento onsubmit
 
-const form = document.querySelector('#meuModal form')
+const form = document.querySelector('#telaModal form')
 form.addEventListener('submit', fazerReservaIngresso)
 
 async function fazerReservaIngresso() {
@@ -57,7 +57,6 @@ async function fazerReservaIngresso() {
   const email = document.getElementById('email').value
   const ingressos = document.getElementById('qtdIngresso').value
   const id = modal.getAttribute('id_evento')
-  console.log('Reserva Realizada')
 
   const URL_RESERVA = 'https://xp41-soundgarden-api.herokuapp.com/bookings'
 
@@ -77,6 +76,7 @@ async function fazerReservaIngresso() {
 
     if (response.ok) {
       alert('reserva feita com sucesso!')
+      console.log(reserva)
     } else {
       console.log(response)
       throw new Error(`${response.status}`)
@@ -92,8 +92,8 @@ async function fazerReservaIngresso() {
 
 // fecha o modal ao clicar
 
-const span = document.getElementsByClassName('close')[0]
-span.onclick = function () {
+const closeBtn = document.querySelector('#closeBtn')
+closeBtn.onclick = function () {
   modal.style.display = 'none'
 }
 
