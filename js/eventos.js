@@ -38,6 +38,11 @@ verTodosEventos()
 
 // MODAL
 
+// função para redirecionar o usuário para a página eventos.html ao terminar
+function redirecionar() {
+  window.location.href = 'eventos.html'
+}
+
 const modal = document.querySelector('#telaModal')
 
 function abrirModal() {
@@ -76,6 +81,7 @@ async function fazerReservaIngresso() {
 
     if (response.ok) {
       alert('reserva feita com sucesso!')
+      redirecionar()
       console.log(reserva)
     } else {
       console.log(response)

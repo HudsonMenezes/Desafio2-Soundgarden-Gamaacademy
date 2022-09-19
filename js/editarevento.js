@@ -25,15 +25,17 @@ async function pegarInformacoes() {
 
 function mostrarInformacoes(data) {
   //transforma a data de ISO para data local
-  let eventDate = new Date(data.scheduled).toLocaleString()
+  let dataEvento = new Date(data.scheduled).toLocaleString()
 
   // pega a informações e atribuem cada uma ao seu respectivo campo por ordem
   document.getElementById('nome').value = data.name
   document.getElementById('banner').value = data.poster
   document.getElementById('atracoes').value = data.attractions
   document.getElementById('descricao').value = data.description
-  document.getElementById('data').value = eventDate
+  document.getElementById('data').value = dataEvento.slice(0, -3) // remove os segundos
   document.getElementById('lotacao').value = data.number_tickets
+
+  console.log('Data: ' + dataEvento.slice(0, -3))
 }
 
 pegarInformacoes()
@@ -70,6 +72,7 @@ async function alteraInformacoes(e) {
     console.log(resposta)
     redirecionar() // redireciona pra página admin.html após o cadastro
   } catch (error) {
+    alert('Não foi possível alterar, tente de novo!')
     console.log(error)
   }
 }
