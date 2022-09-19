@@ -12,17 +12,19 @@ async function verEventos() {
       let tbody = document.querySelector('#tbody')
       // para que cada evento na API apareça na página
       let html = `
-      <tr>
-        <th scope="row">${index + 1}</th>
-        <td>${dataEvento}</td>
-        <td>${evento.name}</td>
-        <td>${atracoes}</td>
-        <td>
-          <a href="reservas.html" class="btn btn-dark">ver reservas</a>
-          <a href="editar-evento.html" class="btn btn-secondary">editar</a>
-          <a href="excluir-evento.html" class="btn btn-danger">excluir</a>
-        </td>
-      </tr>
+<tr>
+  <th scope="row">${index + 1}</th>
+  <td>${dataEvento}</td>
+  <td>${evento.name}</td>
+  <td>${atracoes}</td>
+  <td>
+  <a href="reservas.html?id=${evento._id}" class="btn btn-dark">ver reservas</a>
+  <a href="editar-evento.html?id=${evento._id}"  
+  id="editar-evento" class="btn btn-secondary">editar</a>
+  <a href="excluir-evento.html?id=${evento._id}" 
+  class="btn btn-danger">excluir</a>
+  </td>
+</tr>
       `
 
       //concatenando para que cada evento seja adicionado na variável e apareça na página

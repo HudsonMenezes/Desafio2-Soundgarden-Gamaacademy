@@ -4,7 +4,7 @@ criarEventoForm.addEventListener('submit', novoEvento)
 const URL = 'https://xp41-soundgarden-api.herokuapp.com/events'
 
 function redirecionar() {
-  // função para redirecionar o usuário para a página admin.html
+  // função para redirecionar o usuário para a página admin.html ao terminar
   window.location.href = 'admin.html'
 }
 
@@ -16,8 +16,8 @@ async function novoEvento(e) {
   const atracoes = document.getElementById('atracoes').value.split(',')
   const descricao = document.getElementById('descricao').value
   const data = document.getElementById('data').value
-  const dataObj = new Date(data)
-  const isoData = dataObj.toISOString() // tem que enviar para a API a data em formato ISO
+  const dataEmObjeto = new Date(data)
+  const dataEmISO = dataEmObjeto.toISOString() // tem que enviar para a API a data em formato ISO
   const lotacao = document.getElementById('lotacao').value
   const poster = 'link da imagem'
 
@@ -27,7 +27,7 @@ async function novoEvento(e) {
     attractions: atracoes,
     description: descricao,
     poster: poster,
-    scheduled: isoData,
+    scheduled: dataEmISO,
     number_tickets: lotacao
   }
 
@@ -35,11 +35,11 @@ async function novoEvento(e) {
     const response = await fetch(URL, {
       method: 'POST',
       body: JSON.stringify(evento),
-      headers: { 'Content-type': 'application/json; charset=UTF-8' }
+      headers: { 'Content-type': 'application/json' }
     })
-    const res = await response.json()
-    alert('Evento ' + nome + ' Cadastrado com Sucesso')
-    console.log(res)
+    const resposta = await response.json()
+    alert('Evento ' + nome + ' cadastrado com Sucesso')
+    console.log(resposta)
     redirecionar() // redireciona pra página admin.html após o cadastro
   } catch (error) {
     console.log(error)
