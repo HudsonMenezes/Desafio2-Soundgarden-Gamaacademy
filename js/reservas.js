@@ -6,6 +6,7 @@ async function muralReservas() {
   const id = urlParams.get('id')
   const URL = 'https://xp41-soundgarden-api.herokuapp.com/bookings/event/' + id
 
+  //resgatando informações na API
   try {
     const response = await fetch(URL)
     const data = await response.json()
@@ -15,6 +16,7 @@ async function muralReservas() {
   }
 }
 
+// função para listar as reservas e criar uma tabela
 function listaDasReservas(reservas) {
   const tituloReserva = reservas[0].event.name
   document.getElementById(
@@ -33,7 +35,5 @@ function listaDasReservas(reservas) {
     document.querySelector('tbody').appendChild(linha)
   })
 }
-
-// chamando a function
 
 muralReservas()
