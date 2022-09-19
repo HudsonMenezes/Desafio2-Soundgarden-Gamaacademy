@@ -21,8 +21,8 @@ async function verTodosEventos() {
             <p>
               ${evento.description}
             </p>
-            <a href="#" class="btn btn-primary">reservar ingresso</a>
-            </article>
+            <button class="btn btn-primary" id=${evento._id} onclick='abrirModal()'>Reservar ingresso</button>
+          </article>
       `
 
       //concatenando para que cada evento seja adicionado na variável e apareça na página
@@ -35,3 +35,70 @@ async function verTodosEventos() {
 
 // Chamando função para listar eventos no DOM
 verTodosEventos()
+
+// MODAL
+
+const modal = document.querySelector('#telaModal')
+
+function abrirModal() {
+  event.preventDefault()
+  modal.style.display = 'block'
+  modal.setAttribute('id_evento', event.target.id)
+}
+
+// reserva igresso para evento onsubmit
+
+const form = document.querySelector('#meuModal form')
+form.addEventListener('submit', fazerReservaIngresso)
+
+async function fazerReservaIngresso() {
+  event.preventDefault()
+  const nome = document.getElementById('nome').value
+  const email = document.getElementById('email').value
+  const ingressos = document.getElementById('qtdIngresso').value
+  const id = modal.getAttribute('id_evento')
+  console.log('Reserva Realizada')
+
+  const URL_RESERVA = 'https://xp41-soundgarden-api.herokuapp.com/bookings'
+
+  const reserva = {
+    owner_name: nome,
+    owner_email: email,
+    number_tickets: ingressos,
+    event_id: id
+  }
+
+  try {
+    const response = await fetch(URL_RESERVA, {
+      method: 'POST',
+      body: JSON.stringify(reserva),
+      headers: { 'Content-type': 'application/json' }
+    })
+
+    if (response.ok) {
+      alert('reserva feita com sucesso!')
+    } else {
+      console.log(response)
+      throw new Error(`${response.status}`)
+    }
+
+    const result = await response.json()
+    return result
+  } catch (err) {
+    if (err.message === '400') alert('insira um email válido')
+    console.log(err)
+  }
+}
+
+// fecha o modal ao clicar
+
+const span = document.getElementsByClassName('close')[0]
+span.onclick = function () {
+  modal.style.display = 'none'
+}
+
+// fecha o modal qdo alguem clica fora
+
+window.onclick = function (event) {
+  if (event.target == modal) modal.style.display = 'none'
+}
