@@ -80,9 +80,8 @@ async function fazerReservaIngresso() {
     })
 
     if (response.ok) {
-      alert('reserva feita com sucesso!')
+      alert('Reserva Efetuada! Divirta-se!')
       redirecionar()
-      console.log(reserva)
     } else {
       console.log(response)
       throw new Error(`${response.status}`)
@@ -91,7 +90,7 @@ async function fazerReservaIngresso() {
     const result = await response.json()
     return result
   } catch (err) {
-    if (err.message === '400') alert('insira um email válido')
+    if (err.message === '400') alert('Deu ruim! Chama o batman!')
     console.log(err)
   }
 }
