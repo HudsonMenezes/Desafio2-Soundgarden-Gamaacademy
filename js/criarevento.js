@@ -39,7 +39,7 @@ async function novoEvento(e) {
     })
     const resposta = await response.json()
     alert('Evento ' + nome + ' cadastrado com Sucesso')
-    console.log(resposta)
+    // console.log(resposta)
     redirecionar() // redireciona pra página admin.html após o cadastro
   } catch (error) {
     console.log(error)
