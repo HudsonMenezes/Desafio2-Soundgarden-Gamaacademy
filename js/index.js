@@ -19,7 +19,7 @@ async function mostrarEventos() {
       <p>
         ${evento.description}
       </p>
-      <button class="btn btn-primary" id=${evento._id}'>Reservar Ingresso</button>
+      <a href="eventos.html" class="btn btn-primary">Reservar Ingresso</a>
       </article>
       `
 
