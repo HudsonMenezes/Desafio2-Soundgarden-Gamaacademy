@@ -25,14 +25,15 @@ async function pegarInformacoes() {
 
 function mostrarInformacoes(data) {
   //transforma a data de ISO para data local
-  let eventDate = new Date(data.scheduled).toLocaleString()
+  // let eventDate = new Date(data.scheduled).toLocaleString()
+  let dataEvento = data.scheduled.toLocaleString()
 
   // pega a informações e atribuem cada uma ao seu respectivo campo por ordem
   document.getElementById('nome').value = data.name
   document.getElementById('banner').value = data.poster
   document.getElementById('atracoes').value = data.attractions
   document.getElementById('descricao').value = data.description
-  document.getElementById('data').value = eventDate
+  document.getElementById('data').value = dataEvento.slice(0, -3) // remove os segundos
   document.getElementById('lotacao').value = data.number_tickets
 }
 

@@ -16,8 +16,8 @@ function redirecionar() {
 async function pegarInformacoes() {
   try {
     const response = await fetch(URL)
-    const dataEvento = await response.json()
-    mostrarInformacoes(dataEvento)
+    const infoEvento = await response.json()
+    mostrarInformacoes(infoEvento)
   } catch (error) {
     console.log(error)
   }
@@ -25,7 +25,8 @@ async function pegarInformacoes() {
 
 function mostrarInformacoes(data) {
   //transforma a data de ISO para data local
-  let dataEvento = new Date(data.scheduled).toLocaleString()
+  // let dataEvento = new Date(data.scheduled).toLocaleString()
+  let dataEvento = data.scheduled.toLocaleString()
 
   // pega a informações e atribuem cada uma ao seu respectivo campo por ordem
   document.getElementById('nome').value = data.name
