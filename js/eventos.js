@@ -36,13 +36,12 @@ async function verTodosEventos() {
 // Chamando função para listar eventos no DOM
 verTodosEventos()
 
-// MODAL
-
 // função para redirecionar o usuário para a página eventos.html ao terminar
 function redirecionar() {
   window.location.href = 'eventos.html'
 }
 
+// MODAL
 const modal = document.querySelector('#telaModal')
 
 function abrirModal() {
