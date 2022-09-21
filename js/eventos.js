@@ -51,7 +51,7 @@ function abrirModal() {
   modal.setAttribute('id_evento', event.target.id)
 }
 
-// reserva igresso para evento onsubmit
+// reserva ingresso para evento onsubmit
 
 const form = document.querySelector('#telaModal form')
 form.addEventListener('submit', fazerReservaIngresso)
@@ -80,7 +80,7 @@ async function fazerReservaIngresso() {
     })
 
     if (response.ok) {
-      alert('Reserva Efetuada! Divirta-se!')
+      alert('Reserva Efetuada! Divirta-se no evento!')
       redirecionar()
     } else {
       console.log(response)
