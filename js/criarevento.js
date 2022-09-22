@@ -21,6 +21,12 @@ async function novoEvento(e) {
   const lotacao = document.getElementById('lotacao').value
   const poster = 'link da imagem'
 
+  // validação dos campos para ver se não estão vazios
+  if (!nome || !atracoes || !descricao || !data || !lotacao == true) {
+    alert('❌Os campos não podem estar vazios, preencha corretamente!❌')
+    return
+  }
+
   // as informações que serão enviadas - depois tem que transformar em JSON para enviar pra API
   const evento = {
     name: nome,
@@ -38,7 +44,7 @@ async function novoEvento(e) {
       headers: { 'Content-type': 'application/json' }
     })
     const resposta = await response.json()
-    alert('Evento ' + nome + ' cadastrado com Sucesso')
+    alert('✅ Evento "' + nome + '" cadastrado com Sucesso ✅')
     // console.log(resposta)
     redirecionar() // redireciona pra página admin.html após o cadastro
   } catch (error) {

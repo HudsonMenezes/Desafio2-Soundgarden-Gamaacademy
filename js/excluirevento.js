@@ -56,7 +56,7 @@ async function excluirInformacoes(e) {
         'Content-type': 'application/json'
       }
     })
-    alert('Evento ' + nome + ' deletado com Sucesso')
+    alert('✅ Evento "' + nome + '" deletado com Sucesso ✅')
     redirecionar() // redireciona pra página admin.html após o cadastro
   } catch (error) {
     console.log(error)

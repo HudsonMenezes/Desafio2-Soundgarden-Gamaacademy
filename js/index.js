@@ -44,7 +44,7 @@ function redirecionar() {
 const modal = document.querySelector('#telaModalIndex')
 
 function abrirModalIndex() {
-  console.log('Modal aberto')
+  // console.log('Modal aberto')
   event.preventDefault()
   modal.style.display = 'block'
   modal.setAttribute('id_evento', event.target.id)
@@ -79,7 +79,7 @@ async function fazerReservaIngresso() {
     })
 
     if (response.ok) {
-      alert('Reserva Efetuada! Divirta-se no evento!')
+      alert('🥳 Reserva Efetuada! Divirta-se no evento! 🥳')
       redirecionar()
     } else {
       console.log(response)
@@ -89,7 +89,7 @@ async function fazerReservaIngresso() {
     const result = await response.json()
     return result
   } catch (err) {
-    if (err.message === '400') alert('Deu ruim! Chama o batman!')
+    if (err.message === '400') alert('❌ Deu ruim! Chama o batman! ❌')
     console.log(err)
   }
 }

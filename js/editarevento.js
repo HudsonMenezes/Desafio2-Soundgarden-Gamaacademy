@@ -69,11 +69,11 @@ async function alteraInformacoes(e) {
       headers: { 'Content-type': 'application/json' }
     })
     const resposta = await response.json()
-    alert('Evento ' + nome + ' alterado com Sucesso')
+    alert('✅ Evento "' + nome + '" alterado com Sucesso ✅')
     console.log(resposta)
     redirecionar() // redireciona pra página admin.html após o cadastro
   } catch (error) {
-    alert('Não foi possível alterar, tente de novo!')
+    alert('❌ Não foi possível alterar, tente de novo! ❌')
     console.log(error)
   }
 }
