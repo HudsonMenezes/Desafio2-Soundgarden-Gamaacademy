@@ -18,18 +18,20 @@ async function muralReservas() {
 
 // função para listar as reservas e criar uma tabela
 function listaDasReservas(reservas) {
+  //coloca o nome do evento no h1
   const tituloReserva = reservas[0].event.name
   document.getElementById(
     'eventoNome'
   ).innerHTML = `Reservas referentes ao evento <br>${tituloReserva.bold()}`
+
   reservas.forEach((reserva, index) => {
     const linha = document.createElement('tr')
     linha.innerHTML = `
-    <th scope="row">${index + 1}</th>
-      <td>${reserva.owner_name}</td>
-      <td>${reserva.owner_email}</td>
-      <td>${reserva.number_tickets}</td>
-      `
+      <th scope="row">${index + 1}</th>
+        <td>${reserva.owner_name}</td>
+        <td>${reserva.owner_email}</td>
+        <td>${reserva.number_tickets} unidade(s)</td>
+        `
 
     // adicionando o html "linha" como filho da tag tbody
     document.querySelector('tbody').appendChild(linha)
