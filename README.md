@@ -1,4 +1,4 @@
-# ✔️ Projeto em Construção ✔️
+# ✔️ Projeto Terminado ✔️
 
 ## SoundGarden - HandsOn #2 Gama Academy
 
