@@ -1,4 +1,4 @@
-# :construction: Projeto em Construção :construction:
+# ✔️ Projeto em Construção ✔️
 
 ## SoundGarden - HandsOn #2 Gama Academy
 
